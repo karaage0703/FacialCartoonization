@@ -111,5 +111,6 @@ if __name__ == '__main__':
     output = output.transpose(1, 2, 0)
     output = (output + 1) * 127.5
     output = np.clip(output, 0, 255).astype(np.uint8)
-    output = np.concatenate([raw_image, output], axis=1)
     cv2.imwrite('result.jpg', output)
+    output = np.concatenate([raw_image, output], axis=1)
+    cv2.imwrite('result_concat.jpg', output)
